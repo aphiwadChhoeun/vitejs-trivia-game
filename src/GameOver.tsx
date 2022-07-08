@@ -2,11 +2,12 @@ import { useMemo } from 'react';
 import { Text, Button } from '@nextui-org/react';
 import { useNavigate } from 'react-router-dom';
 import useLocalStorage from './useLocalStorage';
+import type { Question } from './useLocalStorage';
 
 export default function GameOver() {
   const navigate = useNavigate();
-  const [questions, setQuestions] = useLocalStorage('question', null);
-  const [answers, setAnswers] = useLocalStorage('answers', []);
+  const [questions] = useLocalStorage('question', null);
+  const [answers] = useLocalStorage('answers', []);
   const correctResult = useMemo(() => {
     return processAnswers(questions, answers);
   }, [answers]);
@@ -28,8 +29,8 @@ export default function GameOver() {
 }
 
 function processAnswers(
-  questions: Array<Object>,
-  answers: Array<boolean>
+  questions: Array<Question>,
+  answers: Array<any>
 ): number {
   let correctCount = 0;
 
