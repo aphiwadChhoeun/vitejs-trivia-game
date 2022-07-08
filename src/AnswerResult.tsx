@@ -12,7 +12,7 @@ export default function AnswerResult() {
   }, [answers]);
 
   return (
-    <Text size={60}>
+    <Text>
       Corect Answers: {correctResult}/{answers.length}
     </Text>
   );

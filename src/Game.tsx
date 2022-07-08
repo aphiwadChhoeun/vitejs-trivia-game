@@ -41,8 +41,10 @@ export default function Home() {
         <Question key={index} question={questions[index]?.question} />
       ) : null}
       <Spacer y={1} />
-      <Options selectHandler={(option: boolean) => selectHandler(option)} />
-      <Spacer y={2} />
+      <Options
+        key={'option_' + index}
+        selectHandler={(option: boolean) => selectHandler(option)}
+      />
     </>
   );
 }
