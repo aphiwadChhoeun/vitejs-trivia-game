@@ -12,7 +12,7 @@ export default function GameOver() {
 
   return (
     <>
-      <Text size={60}>Game Over</Text>
+      <Text size={60}>Thank you for playing!</Text>
       <AnswerResult />
       <Button onPress={() => restartHandler()}>Restart</Button>
     </>

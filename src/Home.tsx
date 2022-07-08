@@ -13,7 +13,7 @@ export default function Home() {
 
       <Link to="/game">
         <Button size="lg" css={{ textTransform: 'uppercase' }}>
-          Star Game
+          Start Game
         </Button>
       </Link>
     </>

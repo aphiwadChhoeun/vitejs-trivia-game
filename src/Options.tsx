@@ -1,4 +1,4 @@
-import { Container, Button } from '@nextui-org/react';
+import { Container, Button, Text } from '@nextui-org/react';
 import { gsap } from 'gsap';
 import { useEffect, useRef } from 'react';
 
@@ -27,7 +27,7 @@ export default function Options(props: OptionsProps) {
   }, []);
 
   return (
-    <div ref={controlsRef}>
+    <div ref={controlsRef} style={{ opacity: 0 }}>
       <Container
         display="flex"
         justify="center"
@@ -43,6 +43,7 @@ export default function Options(props: OptionsProps) {
         >
           TRUE
         </Button>
+        <Text color="$gray600">OR</Text>
         <Button
           color="error"
           size="xl"
