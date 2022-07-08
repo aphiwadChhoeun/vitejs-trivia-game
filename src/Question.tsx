@@ -31,6 +31,7 @@ export default function Question(props: QuestionProps) {
       weight="bold"
       size={'1.5em'}
       css={{
+        userSelect: 'none',
         '@sm': {
           fontSize: '3em',
         },

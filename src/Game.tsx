@@ -88,7 +88,7 @@ export default function Home() {
           weight="bold"
           size={24}
           color={result === 'Correct!' ? 'success' : 'error'}
-          css={{ textTransform: 'uppercase' }}
+          css={{ textTransform: 'uppercase', userSelect: 'none' }}
         >
           {result}
         </Text>

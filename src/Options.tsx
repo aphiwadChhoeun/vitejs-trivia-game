@@ -36,6 +36,7 @@ export default function Options(props: OptionsProps) {
         y: 0,
       },
       {
+        height: 0,
         opacity: 0,
         y: 50,
         duration: 0.2,
