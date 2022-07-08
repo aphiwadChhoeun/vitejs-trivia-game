@@ -5,11 +5,16 @@ export default function Home() {
   return (
     <>
       <Text h1>Trivia Game</Text>
+      <Text color="$gray600">
+        Play a fun game of 10 TRUE of FALSE trivia questions.
+      </Text>
 
       <Spacer y={1} />
 
       <Link to="/game">
-        <Button size="lg">Star Game</Button>
+        <Button size="lg" css={{ textTransform: 'uppercase' }}>
+          Star Game
+        </Button>
       </Link>
     </>
   );

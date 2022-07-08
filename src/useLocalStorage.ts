@@ -22,7 +22,7 @@ export default function useLocalStorage(
     }
   }, []);
 
-  const update = (to: Array<Question>): void => {
+  const update = (to: any): void => {
     setState(to);
     localStorage.setItem(key, JSON.stringify(to));
   };

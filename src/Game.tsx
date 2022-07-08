@@ -32,15 +32,17 @@ export default function Home() {
       navigate('/game-over');
       return;
     }
-    console.log(option);
     setIndex(index + 1);
   };
 
   return (
     <>
-      {questions ? <Question question={questions[index]?.question} /> : null}
+      {questions ? (
+        <Question key={index} question={questions[index]?.question} />
+      ) : null}
       <Spacer y={1} />
       <Options selectHandler={(option: boolean) => selectHandler(option)} />
+      <Spacer y={2} />
     </>
   );
 }

@@ -19,7 +19,7 @@ export default function Options(props: OptionsProps) {
         shadow
         onPress={() => props.selectHandler(true)}
       >
-        True
+        TRUE
       </Button>
       <Button
         color="error"
@@ -27,7 +27,7 @@ export default function Options(props: OptionsProps) {
         shadow
         onPress={() => props.selectHandler(false)}
       >
-        False
+        FALSE
       </Button>
     </Container>
   );
