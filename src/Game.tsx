@@ -15,9 +15,7 @@ export default function Home() {
     const dataExists = JSON.parse(localStorage.getItem('question') ?? '');
 
     if (!dataExists) {
-      fetch(
-        'https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=boolean'
-      )
+      fetch('https://opentdb.com/api.php?amount=10&category=9&type=boolean')
         .then((res) => res.json())
         .then((data) => {
           setQuestions(data.results);
