@@ -26,6 +26,24 @@ export default function Options(props: OptionsProps) {
     );
   }, []);
 
+  const selectHandler = (option: boolean) => {
+    props.selectHandler(option);
+
+    gsap.fromTo(
+      controlsRef.current,
+      {
+        opacity: 1,
+        y: 0,
+      },
+      {
+        opacity: 0,
+        y: 50,
+        duration: 0.2,
+        ease: 'power3.out',
+      }
+    );
+  };
+
   return (
     <div ref={controlsRef} style={{ opacity: 0 }}>
       <Container
@@ -39,16 +57,16 @@ export default function Options(props: OptionsProps) {
           color="primary"
           size="xl"
           shadow
-          onPress={() => props.selectHandler(true)}
+          onPress={() => selectHandler(true)}
         >
           TRUE
         </Button>
-        <Text color="$gray600">OR</Text>
+
         <Button
           color="error"
           size="xl"
           shadow
-          onPress={() => props.selectHandler(false)}
+          onPress={() => selectHandler(false)}
         >
           FALSE
         </Button>
