@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Game from './Game';
 import GameOver from './GameOver';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
         <Route path="/game" element={<Game />} />
         <Route path="/game-over" element={<GameOver />} />
       </Routes>
+
+      <Footer />
     </Container>
   );
 }
