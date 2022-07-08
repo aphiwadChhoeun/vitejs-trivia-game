@@ -14,10 +14,9 @@ export default function Options(props: OptionsProps) {
       css={{ gap: '1em' }}
     >
       <Button
-        color="success"
+        color="primary"
         size="xl"
         shadow
-        bordered
         onPress={() => props.selectHandler(true)}
       >
         True
@@ -26,7 +25,6 @@ export default function Options(props: OptionsProps) {
         color="error"
         size="xl"
         shadow
-        bordered
         onPress={() => props.selectHandler(false)}
       >
         False

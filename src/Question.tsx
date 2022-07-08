@@ -7,6 +7,7 @@ export type QuestionProps = {
 export default function Question(props: QuestionProps) {
   return (
     <Text
+      weight="bold"
       size={'1.5em'}
       css={{
         '@sm': {
@@ -15,6 +16,7 @@ export default function Question(props: QuestionProps) {
         '@md': {
           fontSize: '5em',
         },
+        textGradient: '45deg, $blue600 -50%, $red600 150%',
       }}
     >
       {decodeEntity(props.question)}
