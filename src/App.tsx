@@ -4,6 +4,7 @@ import Home from './Home';
 import Game from './Game';
 import GameOver from './GameOver';
 import Footer from './Footer';
+import ProgressBar from './ProgressBar';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         minHeight: '100vh',
       }}
     >
+      <ProgressBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/game" element={<Game />} />

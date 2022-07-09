@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export type Question = {
   correct_answer: string;
@@ -7,24 +7,24 @@ export type Question = {
 
 export default function useLocalStorage(
   key: string,
-  value: any
+  initialValue: any
 ): [Array<Question> | Array<any> | any | null, Function, Function] {
-  const [state, setState] = useState<Array<Question> | Array<any> | null>(
-    value
-  );
-  const localStorageValue = localStorage.getItem(key);
-
-  useEffect(() => {
-    if (localStorageValue) {
-      setState(JSON.parse(localStorageValue));
-    } else {
-      localStorage.setItem(key, JSON.stringify(value));
+  const [state, setState] = useState<any | null>(() => {
+    if (typeof window === 'undefined') {
+      return initialValue;
     }
-  }, []);
 
-  const update = (to: any): void => {
-    setState(to);
-    localStorage.setItem(key, JSON.stringify(to));
+    try {
+      const item = localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    } catch (error) {
+      return initialValue;
+    }
+  });
+
+  const update = (value: any): void => {
+    setState(value);
+    localStorage.setItem(key, JSON.stringify(value));
   };
 
   const remove = (): void => {
