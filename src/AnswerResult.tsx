@@ -49,7 +49,17 @@ export default function AnswerResult() {
 
   return (
     <>
-      <Text size={60} weight="bold" css={{ lineHeight: 0.2 }}>
+      <Text
+        size={60}
+        weight="bold"
+        css={{
+          textAlign: 'center',
+          lh: 0.5,
+          '@xsMax': {
+            lh: 0.8,
+          },
+        }}
+      >
         YOUR SCORE
       </Text>
       <Text ref={textRef} size={60} weight="bold">
