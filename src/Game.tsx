@@ -71,7 +71,7 @@ export default function Home() {
       <Spacer y={1} />
       <div
         style={{
-          height: '80px',
+          height: '120px',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',

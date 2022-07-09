@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 export default function Home() {
   return (
     <>
-      <Text h1>Trivia Game</Text>
+      <Text h1 size={100} css={{ textAlign: 'center' }}>
+        Trivia Game
+      </Text>
       <Text color="$gray600">
         Play a fun game of 10 TRUE of FALSE trivia questions.
       </Text>
@@ -12,7 +14,13 @@ export default function Home() {
       <Spacer y={1} />
 
       <Link to="/game">
-        <Button size="lg" css={{ textTransform: 'uppercase' }}>
+        <Button
+          size="lg"
+          shadow
+          rounded
+          bordered
+          css={{ textTransform: 'uppercase' }}
+        >
           Start Game
         </Button>
       </Link>
