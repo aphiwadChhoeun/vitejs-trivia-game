@@ -1,8 +1,8 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Text } from '@nextui-org/react';
 import useLocalStorage from './useLocalStorage';
-
 import type { Question } from './useLocalStorage';
+import { gsap } from 'gsap';
 
 export default function AnswerResult() {
   const [questions] = useLocalStorage('question', null);
@@ -10,10 +10,24 @@ export default function AnswerResult() {
   const correctResult = useMemo(() => {
     return processAnswers(questions, answers);
   }, [answers]);
+  const [result, setResult] = useState(0);
+
+  useEffect(() => {
+    let temp = { v: 0 };
+    gsap.to(temp, {
+      v: correctResult,
+      duration: 1.5,
+      delay: 1,
+      ease: 'power3.out',
+      onUpdate: () => {
+        setResult(Math.ceil(temp.v));
+      },
+    });
+  }, []);
 
   return (
-    <Text>
-      Corect Answers: {correctResult}/{answers.length}
+    <Text size={60} weight="bold">
+      SCORE {result}/{answers.length}
     </Text>
   );
 }

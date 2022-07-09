@@ -5,7 +5,7 @@ import Options from './Options';
 import { useNavigate } from 'react-router-dom';
 import { Spacer, Text } from '@nextui-org/react';
 import { gsap } from 'gsap';
-import { localstorageContext } from './localstorageProvider';
+import { progressContext } from './ProgressProvider';
 
 export default function Home() {
   const [questions, setQuestions] = useLocalStorage('question', null);
@@ -16,7 +16,7 @@ export default function Home() {
   const [result, setResult] = useState<string | null>(null);
   const resultRef = useRef(null);
 
-  const [progress, setProgress] = useContext(localstorageContext);
+  const [progress, setProgress] = useContext(progressContext);
 
   useEffect(() => {
     if (!questions) {
@@ -27,7 +27,7 @@ export default function Home() {
         });
     }
 
-    setProgress(index);
+    setProgress(index * 10);
   }, []);
 
   const selectHandler = (option: boolean) => {
@@ -53,13 +53,13 @@ export default function Home() {
         onComplete: () => {
           setTimeout(() => {
             setResult(null);
+            setProgress((index + 1) * 10);
 
             if (index >= questions.length - 1) {
               navigate('/game-over');
               return;
             }
 
-            setProgress(index + 1);
             setIndex(index + 1);
           }, 1000);
         },
