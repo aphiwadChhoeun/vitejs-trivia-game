@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Text } from '@nextui-org/react';
 import useLocalStorage from './useLocalStorage';
 import type { Question } from './useLocalStorage';
@@ -11,10 +11,12 @@ export default function AnswerResult() {
     return processAnswers(questions, answers);
   }, [answers]);
   const [result, setResult] = useState(0);
+  const textRef = useRef(null);
 
   useEffect(() => {
+    let tl = gsap.timeline();
     let temp = { v: 0 };
-    gsap.to(temp, {
+    tl.to(temp, {
       v: correctResult,
       duration: 1.5,
       delay: 1,
@@ -23,12 +25,37 @@ export default function AnswerResult() {
         setResult(Math.ceil(temp.v));
       },
     });
+
+    tl.to(
+      textRef.current,
+      {
+        scale: 1.2,
+        duration: 0.2,
+        ease: 'expo.out',
+      },
+      '>-1'
+    );
+
+    tl.to(
+      textRef.current,
+      {
+        scale: 1.0,
+        duration: 0.2,
+        ease: 'expo.out',
+      },
+      '>-.05'
+    );
   }, []);
 
   return (
-    <Text size={60} weight="bold">
-      SCORE {result}/{answers.length}
-    </Text>
+    <>
+      <Text size={60} weight="bold" css={{ lineHeight: 0.2 }}>
+        YOUR SCORE
+      </Text>
+      <Text ref={textRef} size={60} weight="bold">
+        {result}/{answers.length}
+      </Text>
+    </>
   );
 }
 

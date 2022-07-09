@@ -9,7 +9,7 @@ export default function ProgressBar() {
     <Progress
       size="xs"
       value={progress}
-      css={{ position: 'fixed', top: 0, left: 0 }}
+      css={{ position: 'fixed', top: 0, left: 0, background: 'transparent' }}
     />
   );
 }
